@@ -72,4 +72,33 @@ Didapatkan kode error `JDRNJA`
 Perolehan flag:  
 ![](images/6c.png)  
 
-Kendala: clue soal **a1 e5 u21** tidak terlalu deskriptif dan misleading karena kode error yang benar di akhir menggunakan huruf kapital.
+Kendala: clue soal **a1 e5 u21** tidak terlalu deskriptif dan misleading karena kode error yang benar di akhir menggunakan huruf kapital.  
+
+# No. 7
+### Soal
+Berapa jumlah packet yang menuju IP 184.87.193.88?  
+
+### Penyelesaian
+Kita cukup menggunakan display filter berikut `ip.dst == 184.87.193.88` dimana .dst berarti destination yang menandakan bahwa yang dicari adalah IP tujuan.
+![](images/7a.png)  
+Dapat langsung dihitung bahwa ada 6 packet yang menuju IP tersebut.  
+
+Perolehan flag:  
+![](images/7b.png) 
+
+Kendala : tidak ada.
+
+# No. 8
+### Soal
+Berikan kueri filter sehingga wireshark hanya mengambil semua protokol paket yang menuju port 80! (Jika terdapat lebih dari 1 port, maka urutkan sesuai dengan abjad)
+
+### Penyelesaian
+Dapat menggunakan display filter sebagai berikut `tcp.dstport == 80 || udp.dstport == 80`. Mengapa harus menggunakan `tcp.` dan `udp.`? karena tidak ada display filter yang hanya menarget port ataupun port tujuan. Yang bisa ditarget sebelumnya adalah protokol terlebih dahulu, lalu port. Maka dari itu `tcp.` dan `udp.` digunakan dan diberi ekspresi `||` untuk menginclude semua protokol yang ada.  
+`dstport` disini memiliki arti destination port atau port tujuan.  
+Wireshark akan mensortir packet secara abjad secara otomatis, maka dari itu tidak perlu dimasukkan ke display filter.
+![](images/8a.png)
+
+Perolehan flag:  
+![](images/8b.png)
+
+Kendala: pengecekan sintaks yang restrictive karena sebenarnya penggunaan `or` dan `eq` juga benar. Apabila spasi dihilangkan dari jawaban, juga akan terhitung benar di Wireshark.  
