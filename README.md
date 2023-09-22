@@ -2,7 +2,7 @@
 
 Kelompok F06:
 - Arkana Bilal Imani / 5025211034
-- Azhar Abiyu
+- Azhar Abiyu Rasendriya H. / 5025211177
 
 # No. 1
 ### Soal
@@ -27,6 +27,63 @@ Untuk mendapatkan packet response, display filter yang digunakan adalah `ftp con
 Perolehan flag:  
 ![](images/1e.png)  
 Kendala: tidak ada.  
+
+# No. 2
+### Soal
+Sebutkan web server yang digunakan pada portal praktikum Jaringan Komputer!
+
+### Penyelesaian
+Untuk menemukan portal praktikum Jaringan Komputer masukkan display filter `http contains “jar”` karena kata kunci jaringan komputer/jarkom.
+![](images/2a.png)
+
+Untuk menemukan web server yang digunakan buka http stream dari packet yang sudah difilter.
+![](images/2b.png)
+
+Mengambil nama gunicorn dari http stream tersebut.
+![](images/2c.png)
+
+Perolehan flag :
+
+![](images/2d.png)
+
+Kendala : tidak ada.
+
+# No. 3
+### Soal
+Dapin sedang belajar analisis jaringan. Bantulah Dapin untuk mengerjakan soal berikut:
+
+a. Berapa banyak paket yang tercapture dengan IP source maupun destination address adalah 239.255.255.250 dengan port 3702?
+
+b. Protokol layer transport apa yang digunakan?
+
+### Penyelesaian
+Untuk menemukan paket yang tercapture dengan IP source maupun destination address 239.255.255.250, masukkan display filter `ip.src == 239.255.255.250 or ip.dst == 239.255.255.250`
+![](images/3a.png)
+
+Sort berdasarkan protocol untuk menggrup protocol udp
+![](images/3b.png)
+
+Perolehan flag :
+
+![](images/3c.png)
+
+Kendala : tidak ada.
+
+# No. 4
+### Soal
+Berapa nilai checksum yang didapat dari header pada paket nomor 130?
+
+### Penyelesaian
+Untuk nilai checksum yang didapat dari header pada paket nomer 130, buka paket urutan atau nomer 130 dan dibuka User Datagram Protocolnya
+![](images/4a.png)
+
+Ditemukan nilai checksum yaitu `0x18e5`
+
+Perolehan flag :
+
+![](images/4b.png)
+
+Kendala : tidak ada.
 
 # No. 5
 ### Soal
