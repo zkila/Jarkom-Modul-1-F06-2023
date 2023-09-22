@@ -159,3 +159,39 @@ Perolehan flag:
 ![](images/8b.png)
 
 Kendala: pengecekan sintaks yang restrictive karena sebenarnya penggunaan `or` dan `eq` juga benar. Apabila spasi dihilangkan dari jawaban, juga akan terhitung benar di Wireshark.  
+
+# No. 9
+### Soal
+Berikan kueri filter sehingga wireshark hanya mengambil paket yang berasal dari alamat 10.51.40.1 tetapi tidak menuju ke alamat 10.39.55.34!
+
+### Penyelesaian
+Menggunakan display filter `ip.src == 10.51.40.1 && ip.dst != 10.39.55.34`
+![](images/9a.png)
+
+Perolehan flag :
+
+![](images/9b.png)
+
+Kendala : tidak ada.
+
+# No. 10
+### Soal
+Sebutkan kredensial yang benar ketika user mencoba login menggunakan Telnet
+
+### Penyelesaian
+Menggunakan display filter tcp
+![](images/10a.png)
+
+Follow TCP Stream
+![](images/10b.png)
+
+Baca username dan password
+![](images/10c.png)
+
+Bedah username berdasarkan warna menjadi biru dan merah yaitu dhafin dan dhafin, lalu masukkan lagi ke nc
+
+perolehan flag :
+
+![](images/10d.png)
+
+Kendala : tidak ada.
